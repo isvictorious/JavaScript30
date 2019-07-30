@@ -58,10 +58,24 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-  alert('hello world');
-  // drum kit goes here
+  // X log keys pressed to console
+  // X log data-key to console
+  // X Add class of playing to div by key #
+  // X Add audio.play 
+  document.addEventListener('keydown', logKey);
+  
+  function logKey(e) {
+    const currentKey = e.keyCode;
+    console.log(currentKey);
+    let playNow = document.querySelector(`audio[data-key="${currentKey}"]`);
+    let keyFront = document.querySelector(`div[data-key="${currentKey}"]`);
+    keyFront.classList.add("playing");
+    playNow.play()
+
+  }
 
 </script>
+
 
 
 </body>
