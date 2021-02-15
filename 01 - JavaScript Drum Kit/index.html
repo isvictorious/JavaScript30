@@ -10,11 +10,11 @@
 
   <div class="keys">
     <div data-key="65" class="key">
-      <kbd>A</kbd>
+      <kbd>!</kbd>
       <span class="sound">clap</span>
     </div>
     <div data-key="83" class="key">
-      <kbd>S</kbd>
+      <kbd>J</kbd>
       <span class="sound">hihat</span>
     </div>
     <div data-key="68" class="key">
@@ -58,8 +58,24 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  // X log keys pressed to console
+  // X log data-key to console
+  // X Add class of playing to div by key #
+  // X Add audio.play 
+  document.addEventListener('keydown', logKey);
+  
+  function logKey(e) {
+    const currentKey = e.keyCode;
+    console.log(currentKey);
+    let playNow = document.querySelector(`audio[data-key="${currentKey}"]`);
+    let keyFront = document.querySelector(`div[data-key="${currentKey}"]`);
+    keyFront.classList.add("playing");
+    playNow.play()
+
+  }
 
 </script>
+
 
 
 </body>
